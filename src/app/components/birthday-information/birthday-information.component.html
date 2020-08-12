@@ -1,10 +1,11 @@
-<mat-card class="example-card no-padding">
+<div class="row margin-left">
+<mat-card class="example-card no-padding col" *ngFor="let weekday of daysInWeek">
     <mat-card-header class="header-bg-color example-header-image">
-        <mat-card-title class=" font-weight-400 float-right">Mon</mat-card-title>
+        <mat-card-title class=" font-weight-400 float-right">{{weekday}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <p>
-            {{birthday.name | getInitials}}
+        <p *ngFor="let birthday of birthdays[weekday]">
+            {{birthday?.name | getInitials}}
         </p>
     </mat-card-content>
 </mat-card>

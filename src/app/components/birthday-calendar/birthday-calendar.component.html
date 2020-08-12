@@ -2,9 +2,9 @@
     <div class="col-md-12 d-flex justify-content-center">
         <h3 class="font-weight-200">Birthday Cal</h3>
     </div>
-    <span *ngFor="let birthday of allBirthday; let i=index">
-        <app-birthday-information *ngIf="i < 7" [birthday]='birthday'></app-birthday-information>
-    </span>
+    <!-- <span *ngFor="let birthday of birthdays; let i=index"> -->
+        <app-birthday-information *ngIf="birthdays" [birthdays]='birthdays'></app-birthday-information>
+    <!-- </span> -->
     <div class="row col-md-12">
         <div class="col-md-6">
         <textarea class="height-45vh col-md-12" [(ngModel)]="jsonData"></textarea>

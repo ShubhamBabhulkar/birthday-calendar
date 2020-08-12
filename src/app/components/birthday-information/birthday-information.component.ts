@@ -6,11 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./birthday-information.component.scss']
 })
 export class BirthdayInformationComponent implements OnInit {
-  @Input('birthday') birthday;
-
-  constructor() { }
+  @Input('birthdays') birthdays;
+  daysInWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+  ngOnChanges() {
+    console.log('this.birthday', this.birthdays);
   }
 
 }
