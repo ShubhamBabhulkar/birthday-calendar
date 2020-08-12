@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewsDashboarComponent } from './components/news-dashboar/news-dashboar.component';
 import { BirthdayCalendarComponent } from './components/birthday-calendar/birthday-calendar.component';
 import { BirthdayInformationComponent } from './components/birthday-information/birthday-information.component';
+import { GetInitialsPipe } from './pipes/get-initials.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BirthdayInformationComponent } from './components/birthday-information/
     TopBarComponent,
     NewsDashboarComponent,
     BirthdayCalendarComponent,
-    BirthdayInformationComponent
+    BirthdayInformationComponent,
+    GetInitialsPipe
   ],
   imports: [
     BrowserModule,
