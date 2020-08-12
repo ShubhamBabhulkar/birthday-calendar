@@ -19,6 +19,9 @@ a {
 .line-height-13px {
     line-height: 13px;
 }
+.color-white{
+    color: #fafafa;
+}
 .mat-card {
     background: white;
     font-family: auto;
@@ -50,6 +53,10 @@ span:focus{
 .display-flex-end{
     justify-content: flex-end;
     display: flex;
+}
+.display-flex-center{
+    display: flex;
+    justify-content: center;
 }
 .cursor-pointer{
     cursor: pointer;

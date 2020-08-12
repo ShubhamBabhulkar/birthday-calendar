@@ -14,7 +14,9 @@ export class BirthdayInformationComponent implements OnInit {
   ngOnInit() {
   }
   ngOnChanges() {
-    console.log('this.birthday', this.birthdays);
+    console.log(this.birthdays);
   }
-
+  getColValue = (birthData) => {
+    return birthData.length > 4 ? 3 : 12 / birthData.length;
+  }
 }

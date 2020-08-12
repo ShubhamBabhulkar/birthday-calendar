@@ -15,6 +15,7 @@ export class BirthdayCalendarComponent implements OnInit {
   allBirthday: any;
   jsonData: any;
   birthdays: any;
+  bgColors = ['#124276', '#26EE6C', '#CF8BAC', '#ACB0EC', '#EA1E9D', '#7E62DD', '#DF44BE', '#189DCF', '#E85743'];
   constructor(
     private birthdayService: BirthdayService,
     private snackBar: MatSnackBar
@@ -29,7 +30,7 @@ export class BirthdayCalendarComponent implements OnInit {
   getBirthdayDates = (year) => {
     this.allBirthday = [];
     this.allBirthday  = this.birthdayService.getBirthdayDates(year.year);
-    this.jsonData = JSON.stringify(this.allBirthday);
+    this.jsonData = JSON.stringify(JSON.parse(JSON.stringify(this.allBirthday)));
     this.getDay(this.allBirthday);
   }
 
@@ -42,10 +43,11 @@ export class BirthdayCalendarComponent implements OnInit {
     weekday[4] = 'THU';
     weekday[5] = 'FRI';
     weekday[6] = 'SAT';
-    _.map(birthData, (date) => {
+    _.map(birthData, (date, index) => {
       const newDate = new Date(date.birthday);
       const day = weekday[newDate.getDay()];
       date.day = day;
+      date.bgColor = this.bgColors[index];
     });
     this.birthdays = _.groupBy(birthData, 'day');
     console.log('group', this.birthdays);
