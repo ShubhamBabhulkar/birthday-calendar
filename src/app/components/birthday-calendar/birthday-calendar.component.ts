@@ -28,8 +28,8 @@ export class BirthdayCalendarComponent implements OnInit {
   getBirthdayDates = (year) => {
     console.log(year);
     this.allBirthday = [];
-    this.allBirthday  = this.birthdayService.getBirthdayDates(year);
+    this.allBirthday  = this.birthdayService.getBirthdayDates(year.year);
     this.jsonData = JSON.stringify(this.allBirthday);
-    console.log('this.allBirthday', this.allBirthday, this.jsonData);
+    console.log('this.allBirthday', this.allBirthday);
   }
 }
