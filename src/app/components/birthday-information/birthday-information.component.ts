@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BirthdayInformationComponent implements OnInit {
   @Input('birthdays') birthdays;
   daysInWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  bgColors = ['#124276', '#26EE6C', '#CF8BAC', '#ACB0EC', '#EA1E9D', '#7E62DD', '#DF44BE', '#189DCF', '#E85743'];
+
   constructor() {
   }
 
@@ -18,5 +20,8 @@ export class BirthdayInformationComponent implements OnInit {
   }
   getColValue = (birthData) => {
     return birthData.length > 4 ? 3 : 12 / birthData.length;
+  }
+  getBgColor = (i) => {
+    return this.bgColors[i] || '#124276';
   }
 }
