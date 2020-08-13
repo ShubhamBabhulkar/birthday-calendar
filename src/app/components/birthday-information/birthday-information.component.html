@@ -6,9 +6,9 @@
     </mat-card-header>
     <mat-card-content>
         <div class="row set-full-width">
-            <div class="display-flex-center flex-container border-0 col-md-{{getColValue(birthdays[weekday])}}" *ngFor="let birthday of birthdays[weekday]; let i = index" [ngStyle]="{'background-color': getBgColor(i)}" >
+            <div class="display-flex-center set-item-center flex-container border-0 col-md-{{getColValue(birthdays[weekday])}}" *ngFor="let birthday of birthdays[weekday]; let i = index" [ngStyle]="{'background-color': getBgColor(i), 'height': getHeight(birthdays[weekday])}" >
                     <span class="color-white">
-                        {{birthday?.name | getInitials}}
+                        <b>{{birthday?.name | getInitials}}</b>
                     </span>
             </div>
         </div>

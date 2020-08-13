@@ -43,7 +43,6 @@ export class BirthdayCalendarComponent implements OnInit {
     weekday[5] = 'FRI';
     weekday[6] = 'SAT';
     _.map(birthData, (date, index) => {
-      console.log('index', index);
       const newDate = new Date(date.birthday);
       const day = weekday[newDate.getDay()];
       date.day = day;

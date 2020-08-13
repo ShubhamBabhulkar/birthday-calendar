@@ -24,4 +24,13 @@ export class BirthdayInformationComponent implements OnInit {
   getBgColor = (i) => {
     return this.bgColors[i] || '#124276';
   }
+  getHeight = (days) => {
+    if (days.length !== 1) {
+      const row = Math.round(days.length / 4);
+      console.log(25 / row);
+      return  25 / row +  'vh';
+    } else {
+      return '25vh';
+    }
+}
 }
