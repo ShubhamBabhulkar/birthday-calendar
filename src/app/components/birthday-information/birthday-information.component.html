@@ -2,18 +2,23 @@
 <div *ngFor="let weekday of daysInWeek">
 <mat-card class="example-card no-padding col">
     <mat-card-header class="header-bg-color example-header-image">
-        <mat-card-title class=" font-weight-400 float-right">{{weekday}}</mat-card-title>
+        <mat-card-title class="font-weight-300">{{weekday}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <div class="row set-full-width">
+                <span *ngIf="!getLength(birthdays[weekday])" class="display-flex-center set-item-center flex-container border-0 col-md-12 wrapper-no-data">
+                        <span class="material-icons font-size-3rem">
+                            sentiment_dissatisfied
+                        </span>
+                    </span>
+                    
             <div class="display-flex-center set-item-center flex-container border-0 col-md-{{getColValue(birthdays[weekday])}}" *ngFor="let birthday of birthdays[weekday]; let i = index" [ngStyle]="{'background-color': getBgColor(i), 'height': getHeight(birthdays[weekday])}" >
                     <span class="color-white">
-                        <b>{{birthday?.name | getInitials}}</b>
+                        {{birthday?.name | getInitials}}
                     </span>
-            </div>
+                </div>
         </div>
     </mat-card-content>
 </mat-card>
-<!-- <span>{{getColValue(birthdays[weekday])}} birthdays</span> -->
 </div>
 </div>

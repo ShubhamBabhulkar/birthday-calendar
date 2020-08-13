@@ -16,7 +16,7 @@ export class BirthdayInformationComponent implements OnInit {
   ngOnInit() {
   }
   ngOnChanges() {
-    console.log(this.birthdays);
+    // console.log(this.birthdays);
   }
   getColValue = (birthData) => {
     return birthData.length > 4 ? 3 : 12 / birthData.length;
@@ -27,10 +27,17 @@ export class BirthdayInformationComponent implements OnInit {
   getHeight = (days) => {
     if (days.length !== 1) {
       const row = Math.round(days.length / 4);
-      console.log(25 / row);
       return  25 / row +  'vh';
     } else {
       return '25vh';
     }
-}
+  }
+
+  getLength = (data) => {
+    if (data) {
+      return data.length;
+    } else {
+      return 0;
+    }
+  }
 }

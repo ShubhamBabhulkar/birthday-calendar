@@ -1,6 +1,5 @@
 import { BirthdayService } from './../../service/birthday.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 
@@ -15,23 +14,28 @@ export class BirthdayCalendarComponent implements OnInit {
   allBirthday: any;
   jsonData: any;
   birthdays: any;
+  prevData: any;
   constructor(
     private birthdayService: BirthdayService,
-    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
     this.yearForm = new FormGroup({
       year: new FormControl(null, [Validators.required]),
+      jsonData: new FormControl(null, [Validators.required])
     });
   }
 
-  getBirthdayDates = (year) => {
-    this.allBirthday = [];
-    this.allBirthday  = this.birthdayService.getBirthdayDates(year.year);
-    this.jsonData = JSON.stringify(JSON.parse(JSON.stringify(this.allBirthday)));
+  getBirthdayDates = (forBirthday) => {
+    if (this.prevData !== forBirthday) {
+    this.prevData = forBirthday;
+    this.allBirthday  = this.birthdayService.getBirthdayDates(forBirthday.year, JSON.parse(forBirthday.jsonData));
     this.getDay(this.allBirthday);
+  } else {
+    this.yearForm.reset();
+    this.birthdays = '';
   }
+}
 
   getDay = (birthData) => {
     const weekday = new Array(7);
@@ -48,5 +52,6 @@ export class BirthdayCalendarComponent implements OnInit {
       date.day = day;
     });
     this.birthdays = _.groupBy(birthData, 'day');
+    _.sortBy(this.birthdays, ['name', 'birthday']);
   }
 }

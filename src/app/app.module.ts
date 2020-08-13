@@ -8,7 +8,6 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NewsDashboarComponent } from './components/news-dashboar/news-dashboar.component';
 import { BirthdayCalendarComponent } from './components/birthday-calendar/birthday-calendar.component';
 import { BirthdayInformationComponent } from './components/birthday-information/birthday-information.component';
 import { GetInitialsPipe } from './pipes/get-initials.pipe';
@@ -17,7 +16,6 @@ import { GetInitialsPipe } from './pipes/get-initials.pipe';
   declarations: [
     AppComponent,
     TopBarComponent,
-    NewsDashboarComponent,
     BirthdayCalendarComponent,
     BirthdayInformationComponent,
     GetInitialsPipe
